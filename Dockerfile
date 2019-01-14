@@ -4,7 +4,7 @@ EXPOSE 80
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY ["MySQLTestPrj/MySQLTestPrj.csproj", "MySQLTestPrj/"]
+COPY *.csproj ./
 RUN dotnet restore "MySQLTestPrj/MySQLTestPrj.csproj"
 COPY . .
 WORKDIR "/src/MySQLTestPrj"
