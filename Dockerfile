@@ -7,8 +7,7 @@ WORKDIR /src
 COPY *.csproj ./
 RUN dotnet restore
 COPY . .
-WORKDIR "/src/MySQLTestPrj"
-RUN dotnet build "MySQLTestPrj.csproj" -c Release -o /app
+RUN dotnet publish -c Release -o out
 
 FROM build AS publish
 RUN dotnet publish "MySQLTestPrj.csproj" -c Release -o /app
